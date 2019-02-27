@@ -39,7 +39,12 @@ spec:
             container('maven') {
                 dir ('daytrader-webapp') {
                     sh 'mvn package -B -e -Dmaven.test.skip=true'
+                    sh 'pwd'
+                    sh 'ls -la'
                 }
+                sh 'pwd'
+                sh 'ls -la'
+                sh 'ls -la daytrader-webapp/target'
             }
         }
     }
@@ -49,8 +54,6 @@ spec:
       }
       steps {
         container(name: 'kaniko', shell: '/busybox/sh') {
-            sh 'pwd'
-            sh 'ls -la'
             sh '''#!/busybox/sh
             /kaniko/executor -v debug -f `pwd`/daytrader-webapp/daytrader-web/Dockerfile -c `pwd`/daytrader-webapp --insecure --skip-tls-verify --destination=baserepodev.devrepo.malibu-pctn.com/104017-malibu-artifacts/daytrader-example-webapp:latest \
             --build-arg WAR_ARTIFACTID=daytrader-web \
