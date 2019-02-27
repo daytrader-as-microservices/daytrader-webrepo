@@ -413,7 +413,7 @@
        					<version>${dockerfile-maven-version}</version>
        					<executions>
          					<execution>
-           						<phase>package</phase>
+           						<phase>install</phase>
 			           			<goals>
             						<goal>build</goal>
              						<goal>push</goal>
