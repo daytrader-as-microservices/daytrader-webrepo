@@ -10,7 +10,8 @@ pipeline {
   }
   //libraries {
   //  lib('DaytraderLib')
-  //}  stages {
+  //}
+  stages {
     stage('build maven') {
         steps {
             mavenBuild('daytrader-webapp')
