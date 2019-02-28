@@ -17,7 +17,7 @@ pipeline {
             mavenBuild('daytrader-webapp')
         }
     }
-        stage('Build with Kaniko') {
+    stage('Build with Kaniko') {
       environment {
         PATH = "/busybox:/kaniko:$PATH"
       }
@@ -31,6 +31,13 @@ pipeline {
                     '4.0.0', 
                     5443)
       }
+    }
+    stage('Trigger Spinnaker') {
+        steps {
+            spinnakerTrigger('maven',
+                             'malibu-apps',
+                             'waitPipeline')
+        }
     }
   }
 }
