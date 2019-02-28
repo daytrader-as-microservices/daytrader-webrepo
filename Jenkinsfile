@@ -32,12 +32,12 @@ pipeline {
                     5443)
       }
     }
-    post {
-      success {        
-        spinnakerTrigger('maven',
-                         'malibu-apps',
-                         'waitPipeline')
-      }
+  }
+  post {
+    success {        
+      spinnakerTrigger('maven',
+                       'malibu-apps',
+                       'waitPipeline')
     }
   }
 }
