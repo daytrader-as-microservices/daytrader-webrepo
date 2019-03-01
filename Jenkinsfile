@@ -42,10 +42,7 @@ pipeline {
           message 'hi'
           ok 'succeeded'
           parameters {
-            [string(defaultValue: '', 
-              description: '', 
-              name: 'status', 
-              trim: false)]
+            string(defaultValue: '', description: '', name: 'status', trim: false)
           }
         }
         echo "Deploying ${status}."
