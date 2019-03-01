@@ -38,9 +38,9 @@ pipeline {
                         'malibu-apps',
                         'waitPipeline')
         input{
-          id 'Spinnaker-deploy'
-          message 'hi'
-          ok 'succeeded'
+          id 'Spinnaker-deploy',
+          message 'hi',
+          ok 'succeeded',
           parameters {
             string(defaultValue: '', description: '', name: 'status', trim: false)
           }
