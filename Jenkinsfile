@@ -32,12 +32,24 @@ pipeline {
                     5443)
       }
     }
-  }
-  post {
-    success {        
-      spinnakerTrigger('maven',
-                       'malibu-apps',
-                       'waitPipeline')
+    stage('Deploy') {
+      steps {  
+        spinnakerTrigger('maven',
+                        'malibu-apps',
+                        'waitPipeline')
+        input{
+          id 'Spinnaker-deploy'
+          message 'hi'
+          ok 'succeeded'
+          parameters {
+            [string(defaultValue: '', 
+              description: '', 
+              name: 'status', 
+              trim: false)]
+          }
+        }
+        echo "Deploying ${status}."
+      }
     }
   }
 }
