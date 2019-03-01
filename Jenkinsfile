@@ -42,14 +42,14 @@ pipeline {
     stage('Deploy Status') {
       input{
         id 'Spinnaker-deploy'
-        message 'hi'
+        message 'Waiting for spinnaker'
         ok 'succeeded'
         parameters {
-          string(defaultValue: '', description: '', name: 'status', trim: false)
+          string(defaultValue: 'pending', description: '', name: 'STATUS', trim: false)
         }
       }
       steps {
-        echo "Deploying ${status}."
+        echo "Deploying ${STATUS}."
       }
     }
   }
