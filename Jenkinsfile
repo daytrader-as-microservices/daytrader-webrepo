@@ -32,25 +32,25 @@ pipeline {
                     5443)
       }
     }
-    stage('Deploy Trigger') {
-      steps {  
-        spinnakerTrigger('maven',
-                        'malibu-apps',
-                        'waitPipeline')
-      }
-    }
-    stage('Deploy Status') {
-      input{
-        id 'Spinnaker-deploy'
-        message 'Waiting for spinnaker'
-        ok 'succeeded'
-        parameters {
-          string(defaultValue: 'pending', description: '', name: 'STATUS', trim: false)
-        }
-      }
-      steps {
-        echo "Deploying ${STATUS}."
-      }
-    }
+    //stage('Deploy Trigger') {
+    //  steps {  
+    //    spinnakerTrigger('maven',
+    //                    'malibu-apps',
+    //                    'waitPipeline')
+    //  }
+    //}
+    //stage('Deploy Status') {
+    //  input{
+    //    id 'Spinnaker-deploy'
+    //    message 'Waiting for spinnaker'
+    //    ok 'succeeded'
+    //    parameters {
+    //      string(defaultValue: 'pending', description: '', name: 'STATUS', trim: false)
+    //    }
+    //  }
+    //  steps {
+    //    echo "Deploying ${STATUS}."
+    //  }
+    //}
   }
 }
