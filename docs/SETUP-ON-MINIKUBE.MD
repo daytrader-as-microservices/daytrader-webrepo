@@ -40,11 +40,7 @@ What's next
 
 ### Install the NGINX Ingress Controller
         
-1.  Create configmaps; otherwise the ingress controller will throw `Error getting ConfigMap`
-        
-    `$ kubectl apply -f https://github.com/kubernetes/minikube/blob/master/deploy/addons/ingress/ingress-configmap.yaml`
-        
-2.  Enable the ingress add-on
+1.  Enable the ingress add-on
        
     a.  `$ minikube addons enable ingress`
             
@@ -68,7 +64,7 @@ What's next
 
 To install `tiller` into the minikube cluster
 
-1.  `$ kubectl use-context minikube`
+1.  `$ kubectl config use-context minikube`
 
 2.  `$ helm init`. 
 
